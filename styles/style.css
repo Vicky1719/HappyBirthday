@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    background-color: aliceblue;
+}
+
+#mi-canvas {
+    background-color: bisque;
+}
+
+#pantalla-inicial,
+#restart-btn {
+    background-color: blueviolet;
+    color: aqua;
+    padding: 30px;
+    font-size: 30px;
+    margin-top: 45px;
+    border-radius: 15;
+    
+}
+
+.bloque {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+#mi-canvas,
+#pantalla-inicial {
+    display: none;
+}

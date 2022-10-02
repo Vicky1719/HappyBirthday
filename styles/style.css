@@ -7,7 +7,7 @@ body {
     background-color: bisque;
 }
 
-#pantalla-inicial,
+#start-btn,
 #restart-btn {
     background-color: blueviolet;
     color: aqua;
@@ -15,8 +15,7 @@ body {
     font-size: 30px;
     margin-top: 45px;
     border-radius: 15;
-    
-}
+    }
 
 .bloque {
     display: flex;
@@ -27,6 +26,6 @@ body {
 }
 
 #mi-canvas,
-#pantalla-inicial {
+#pantalla-final {
     display: none;
 }

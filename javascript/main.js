@@ -15,8 +15,14 @@ const empezarJuego = () => {
 
     juegoObj = new Juego();
     juegoObj.gameLoop();
-}
+};
 // event listeners
 
 startBtn.addEventListener("click", empezarJuego);
+
+window.addEventListener("keydow", (event) => {
+    if(event.code === "Space") {
+        juegoObj.niñoBuenoObj.correNiño()
+    }
+})
 

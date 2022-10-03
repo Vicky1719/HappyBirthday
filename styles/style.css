@@ -4,7 +4,8 @@ body {
 }
 
 #mi-canvas {
-    background-image: url(/images/fondo.png);
+   
+    background-color:antiquewhite;
 }
 
 #start-btn,

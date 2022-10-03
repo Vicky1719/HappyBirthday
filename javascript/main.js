@@ -1,5 +1,5 @@
 // variables globales
-const canvas = document.querySelector("mi-canvas");
+const canvas = document.querySelector("#mi-canvas");
 const ctx = canvas.getContext("2d");
 const startScreen = document.querySelector("#pantalla-inicial");
 const startBtn = document.querySelector("#start-btn");
@@ -20,7 +20,7 @@ const empezarJuego = () => {
 
 startBtn.addEventListener("click", empezarJuego);
 
-window.addEventListener("keydow", (event) => {
+window.addEventListener("keydown", (event) => {
     if(event.code === "Space") {
         juegoObj.niñoBuenoObj.correNiño()
     }

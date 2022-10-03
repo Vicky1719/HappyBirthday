@@ -1,15 +1,21 @@
-class NiñoDardo{
-    constructor() {
-// propiedades del niñoDardo
-this.img = new Image();
-this.img.src = "./images/niñodardo.png";
- // FALTAN COSAS
+class NiñoDardo {
+  constructor() {
+    // propiedades del niñoDardo
+    this.img = new Image();
+    this.img.src = "./images/niñodardo.png";
 
-    }
+    this.x = 550;
+    this.y = 100;
+    this.w = 35;
+    this.h = 40;
+    this.speed = 1;
+  }
 
-    drawNiñoDardo = () => {
-        ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
-    }
+  drawNiñoDardo = () => {
+    ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+  };
 
+  caminarNiñoDardo = () => {
+    this.x = this.x - this.speed;
+  };
 }
-

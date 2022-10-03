@@ -21,8 +21,18 @@ const empezarJuego = () => {
 startBtn.addEventListener("click", empezarJuego);
 
 window.addEventListener("keydown", (event) => {
-    if(event.code === "Space") {
-        juegoObj.niñoBuenoObj.correNiño()
+    if(event.code === "ArrowLeft") {
+juegoObj.niñoBuenoObj.moverIzquierda()
+    }
+    if(event.code === "ArrowRight") {
+juegoObj.niñoBuenoObj.moverDerecha()
+    }
+    if(event.code === "ArrowUp") {
+        juegoObj.niñoBuenoObj.moverArriba()
+    }
+    if(event.code === "ArrowDown") {
+juegoObj.niñoBuenoObj.moverAbajo()
     }
 })
+
 

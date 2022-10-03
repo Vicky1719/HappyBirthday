@@ -7,7 +7,8 @@ class NiñoBueno {
         this.y = 50;
         this.w = 40;
         this.h = 35;
-        this.speed = 2;
+        this.speed = 3;
+        
 
     } 
 
@@ -15,9 +16,20 @@ class NiñoBueno {
         ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
     };
     
-    correNiño = () => {
-        this.y = this.y + this.speed;
-    };
+
+   moverArriba = () => {
+    this.y = this.y - this.speed
+   }
+    moverAbajo = () => {
+    this.y = this.y + this.speed
+}
+moverDerecha = () => {
+    this.x = this.x + this.speed
+}
+
+moverIzquierda = () => {
+    this.x = this.x - this.speed
+}
 
 }
 

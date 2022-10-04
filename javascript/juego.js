@@ -19,7 +19,7 @@ class Juego {
         this.niñoBuenoObj.y < eachDardo.y + eachDardo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachDardo.y
       ) {
-        this.gameOver();
+        this.gameScore();
       }
     });
   };

@@ -5,7 +5,9 @@ const startScreen = document.querySelector("#pantalla-inicial");
 const startBtn = document.querySelector("#start-btn");
 const gameOverScreen = document.querySelector("#pantalla-final");
 const restartBtn = document.querySelector("#restart-btn");
-
+const contadorOne = document.querySelector("#contador-one")
+const contadorTwo = document.querySelector("#contador-two")
+const contadorThree = document.querySelector("#contador-three")
 let juegoObj;
 // funciones
 

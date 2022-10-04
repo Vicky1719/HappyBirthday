@@ -4,11 +4,11 @@ class NiñoDardo {
     this.img = new Image();
     this.img.src = "./images/niñodardo.png";
 
-    this.x = 550;
+    this.x = 600;
     this.y = Math.random() * canvas.height;
     this.w = 35;
     this.h = 40;
-    this.speed = 1;
+    this.speed = 3;
   }
 
   drawNiñoDardo = () => {

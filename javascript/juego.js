@@ -7,9 +7,11 @@ class Juego {
 
     this.niñoDardoArr = [];
     this.globoArr = [];
+    this.glotonArr = [];
+    this.tartaArr = [];
     this.frames = 0;
     this.isGameOn = true;
-    this.score = 0
+    this.score = 0;
   }
 
   dardoChoque = () => {
@@ -25,21 +27,45 @@ class Juego {
     });
   };
 
-  globoChoque = () => { 
-    this.globoArr.forEach((eachGlobo, index) =>  {
-        
+  globoChoque = () => {
+    this.globoArr.forEach((eachGlobo, index) => {
       if (
         this.niñoBuenoObj.x < eachGlobo.x + eachGlobo.w &&
         this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachGlobo.x &&
         this.niñoBuenoObj.y < eachGlobo.y + eachGlobo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGlobo.y
       ) {
-    
         this.score++;
-        this.globoArr.splice(index, 1)
-    
+        this.globoArr.splice(index, 1);
       }
-    })
+    });
+  };
+
+  tartaChoque = () => {
+    this.tartaArr.forEach((eachTarta, index) => {
+      if (
+        this.niñoBuenoObj.x < eachTarta.x + eachTarta.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachTarta.x &&
+        this.niñoBuenoObj.y < eachTarta.y + eachTarta.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachTarta.y
+      ) {
+        this.score++;
+        this.tartaArr.splice(index, 1);
+      }
+    });
+  };
+
+  glotonChoque = () => {
+    this.glotonArr.forEach((eachGloton) => {
+      if (
+        this.niñoBuenoObj.x < eachGloton.x + eachGloton.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachGloton.x &&
+        this.niñoBuenoObj.y < eachGloton.y + eachGloton.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGloton.y
+      ) {
+        this.gameOver();
+      }
+    });
   };
 
   gameOver = () => {
@@ -50,36 +76,59 @@ class Juego {
     gameOverScreen.style.display = "flex";
   };
 
-
   addDardo = () => {
-    if (this.frames % 60 === 0) {
-      let randomNum = Math.random() * 50;
-      let randomXint = Math.floor(randomNum);
+    if (this.score <= 1) {
+      if (this.frames % 60 === 0) {
+        let randomNum = Math.random() * 50;
+        let randomXint = Math.floor(randomNum);
 
-      let nuevoDardo = new NiñoDardo(randomXint);
-      this.niñoDardoArr.push(nuevoDardo);
+        let nuevoDardo = new NiñoDardo(randomXint);
+        this.niñoDardoArr.push(nuevoDardo);
+        
+      }
     }
   };
 
   addGlobo = () => {
-    if (this.frames % 120 === 0) {
-      let randomNum2 = Math.random() * 30;
-      let randomXint2 = Math.floor(randomNum2);
+    if (this.score <= 1) {
+      if (this.frames % 60 === 0) {
+        let randomNum2 = Math.random() * 30;
+        let randomXint2 = Math.floor(randomNum2);
 
-      let nuevoGlobo = new Globo(randomXint2);
-      this.globoArr.push(nuevoGlobo);
+        let nuevoGlobo = new Globo(randomXint2);
+        this.globoArr.push(nuevoGlobo);
+      }
+    }
+  };
+
+  addTarta = () => {
+    if (this.score >= 2 && this.score <= 3) {
+      if (this.frames % 60 === 0) {
+        let randomNum3 = Math.random() * 30;
+        let randomXint3 = Math.floor(randomNum3);
+
+        let nuevaTarta = new Tarta(randomXint3);
+        this.tartaArr.push(nuevaTarta);
+      }
+    }
+  };
+
+  addNiñoGloton = () => {
+    if (this.score >= 2 && this.score <= 3) {
+      if (this.frames % 60 === 0) {
+        let randomNum4 = Math.random() * 50;
+        let randomXint4 = Math.floor(randomNum4);
+
+        let nuevoNiñoGloton = new NiñoGloton(randomXint4);
+        this.glotonArr.push(nuevoNiñoGloton);
+      }
     }
   };
 
   drawFondo = () => {
     ctx.drawImage(this.fondo, 0, 0, canvas.w, canvas.h);
   };
-
-  drawScore = () => {
-    ctx.font = "20px Mochiy Pop One, sans-serif";
-    let scoreStr = `Score: ${this.score}`
-    ctx.fillText(this.score, canvas.width * 0.4, 50)
-};
+  //contador-one = `Score: ${this.score}`;
 
   gameLoop = () => {
     this.frames = this.frames + 1;
@@ -99,8 +148,20 @@ class Juego {
     });
     this.addGlobo();
 
+    this.glotonArr.forEach((eachGloton) => {
+      eachGloton.comerNiñoGloton();
+    });
+    this.addNiñoGloton();
+
+    this.tartaArr.forEach((eachTarta) => {
+      eachTarta.volarTarta();
+    });
+    this.addTarta();
+
     this.dardoChoque();
     this.globoChoque();
+    this.tartaChoque();
+    this.glotonChoque();
 
     //dibujar
     this.drawFondo();
@@ -113,10 +174,16 @@ class Juego {
     this.globoArr.forEach((eachGlobo) => {
       eachGlobo.drawGlobo();
     });
-this.drawScore();
-    
 
-//recursion
+    this.glotonArr.forEach((eachGloton) => {
+      eachGloton.drawNiñoGloton();
+    });
+
+    this.tartaArr.forEach((eachTarta) => {
+      eachTarta.drawTarta();
+    });
+
+    //recursion
     if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);
     }

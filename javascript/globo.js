@@ -4,11 +4,11 @@ class Globo {
     this.img = new Image();
     this.img.src = "./images/globo.png";
 
-    this.x = 500;
+    this.x = 600;
     this.y = Math.random() * canvas.height;
     this.w = 30;
     this.h = 25;
-    this.speed = 1;
+    this.speed = 3;
   }
 
   drawGlobo = () => {

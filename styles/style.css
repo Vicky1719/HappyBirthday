@@ -26,7 +26,19 @@ body {
     margin: 50px;
 }
 
+
+#contador-one,
+#contador-two,
+#contador-three {
+    position: center;
+    width: 130px;
+    height: 20px;
+    margin-top: 420px;
+    left: 25px;
+}
+
 #mi-canvas,
 #pantalla-final {
     display: none;
 }
+

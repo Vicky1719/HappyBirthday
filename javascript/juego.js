@@ -9,6 +9,7 @@ class Juego {
     this.globoArr = [];
     this.frames = 0;
     this.isGameOn = true;
+    this.score = 0
   }
 
   dardoChoque = () => {
@@ -19,15 +20,14 @@ class Juego {
         this.niñoBuenoObj.y < eachDardo.y + eachDardo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachDardo.y
       ) {
-        this.gameScore();
+        this.gameOver();
       }
     });
   };
 
   globoChoque = () => { 
-    for (let i = 0; i < this.globoArr.length; i++) {
-      let eachGlobo = this.globoArr[i];
-    
+    this.globoArr.forEach((eachGlobo, index) =>  {
+        
       if (
         this.niñoBuenoObj.x < eachGlobo.x + eachGlobo.w &&
         this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachGlobo.x &&
@@ -35,11 +35,11 @@ class Juego {
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGlobo.y
       ) {
     
-        this.gameScore();
-        this.globoArr.splice(i, 1)
-        break;
+        this.score++;
+        this.globoArr.splice(index, 1)
+    
       }
-    }
+    })
   };
 
   gameOver = () => {
@@ -50,11 +50,6 @@ class Juego {
     gameOverScreen.style.display = "flex";
   };
 
-  gameScore = () => {
-    if (this.globoChoque === true) {
-      this.score++;
-    }
-  };
 
   addDardo = () => {
     if (this.frames % 60 === 0) {
@@ -79,6 +74,12 @@ class Juego {
   drawFondo = () => {
     ctx.drawImage(this.fondo, 0, 0, canvas.w, canvas.h);
   };
+
+  drawScore = () => {
+    ctx.font = "20px Mochiy Pop One, sans-serif";
+    let scoreStr = `Score: ${this.score}`
+    ctx.fillText(this.score, canvas.width * 0.4, 50)
+};
 
   gameLoop = () => {
     this.frames = this.frames + 1;
@@ -112,7 +113,10 @@ class Juego {
     this.globoArr.forEach((eachGlobo) => {
       eachGlobo.drawGlobo();
     });
+this.drawScore();
+    
 
+//recursion
     if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);
     }

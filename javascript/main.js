@@ -4,7 +4,6 @@ const ctx = canvas.getContext("2d");
 const startScreen = document.querySelector("#pantalla-inicial");
 const startBtn = document.querySelector("#start-btn");
 const gameOverScreen = document.querySelector("#pantalla-final");
-
 const restartBtn = document.querySelector("#restart-btn");
 
 let juegoObj;

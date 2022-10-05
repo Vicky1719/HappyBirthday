@@ -27,18 +27,15 @@ body {
 }
 
 
-#contador-one,
-#contador-two,
-#contador-three {
-    position: center;
+#contador-one, #contador-two, #contador-three {
+    position: absolute;
     width: 130px;
     height: 20px;
-    margin-top: 420px;
+    margin-top: 500px;
     left: 25px;
 }
 
-#mi-canvas,
-#pantalla-final {
+#mi-canvas, #pantalla-final {
     display: none;
 }
 

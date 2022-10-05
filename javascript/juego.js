@@ -9,6 +9,7 @@ class Juego {
     this.globoArr = [];
     this.glotonArr = [];
     this.tartaArr = [];
+    this.traviesoArr = [];
     this.frames = 0;
     this.isGameOn = true;
     this.score = 0;
@@ -68,6 +69,19 @@ class Juego {
     });
   };
 
+  traviesoChoque = () => {
+    this.traviesoArr.forEach((eachTravieso) => {
+      if (
+        this.niñoBuenoObj.x < eachTravieso.x + eachTravieso.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachTravieso.x &&
+        this.niñoBuenoObj.y < eachTravieso.y + eachTravieso.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachTravieso.y
+      ) {
+        this.gameOver();
+      }
+    });
+  };
+
   gameOver = () => {
     this.isGameOn = false;
 
@@ -84,7 +98,6 @@ class Juego {
 
         let nuevoDardo = new NiñoDardo(randomXint);
         this.niñoDardoArr.push(nuevoDardo);
-        
       }
     }
   };
@@ -110,6 +123,8 @@ class Juego {
         let nuevaTarta = new Tarta(randomXint3);
         this.tartaArr.push(nuevaTarta);
       }
+      this.globoArr.splice(0, this.globoArr.length);
+      this.niñoDardoArr.splice(0, this.niñoDardoArr.length);
     }
   };
 
@@ -122,6 +137,20 @@ class Juego {
         let nuevoNiñoGloton = new NiñoGloton(randomXint4);
         this.glotonArr.push(nuevoNiñoGloton);
       }
+    }
+  };
+
+  addNiñoTravieso = () => {
+    if (this.score >= 4) {
+      if (this.frames % 60 === 0) {
+        let randomNum5 = Math.random() * 50;
+        let randomXint5 = Math.floor(randomNum5);
+
+        let nuevoNiñoTravieso = new NiñoTravieso(randomXint5);
+        this.traviesoArr.push(nuevoNiñoTravieso);
+      }
+      this.tartaArr.splice(0, this.tartaArr.length);
+      this.glotonArr.splice(0, this.glotonArr.length);
     }
   };
 
@@ -158,10 +187,16 @@ class Juego {
     });
     this.addTarta();
 
+    this.traviesoArr.forEach((eachTravieso) => {
+      eachTravieso.correrNiñoTravieso();
+    });
+    this.addNiñoTravieso();
+
     this.dardoChoque();
     this.globoChoque();
     this.tartaChoque();
     this.glotonChoque();
+    this.traviesoChoque();
 
     //dibujar
     this.drawFondo();
@@ -181,6 +216,10 @@ class Juego {
 
     this.tartaArr.forEach((eachTarta) => {
       eachTarta.drawTarta();
+    });
+
+    this.traviesoArr.forEach((eachTravieso) => {
+      eachTravieso.drawNiñoTravieso();
     });
 
     //recursion

@@ -8,8 +8,7 @@ body {
     background-color:antiquewhite;
 }
 
-#start-btn,
-#restart-btn {
+#start-btn, #restart-btn {
     background-color: blueviolet;
     color: aqua;
     padding: 30px;

@@ -10,9 +10,11 @@ class Juego {
     this.glotonArr = [];
     this.tartaArr = [];
     this.traviesoArr = [];
+    this.regaloArr = [];
     this.frames = 0;
     this.isGameOn = true;
-    this.score = 0;
+    this.scoreOne = 0;
+    this.scoreTwo = 0;
   }
 
   dardoChoque = () => {
@@ -36,7 +38,8 @@ class Juego {
         this.niñoBuenoObj.y < eachGlobo.y + eachGlobo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGlobo.y
       ) {
-        this.score++;
+        this.scoreOne++;
+        contadorOne.innerText = this.scoreOne;
         this.globoArr.splice(index, 1);
       }
     });
@@ -50,7 +53,8 @@ class Juego {
         this.niñoBuenoObj.y < eachTarta.y + eachTarta.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachTarta.y
       ) {
-        this.score++;
+        this.scoreTwo++;
+        contadorTwo.innerText = this.scoreTwo;
         this.tartaArr.splice(index, 1);
       }
     });
@@ -91,7 +95,7 @@ class Juego {
   };
 
   addDardo = () => {
-    if (this.score <= 1) {
+    if (this.scoreOne <= 1) {
       if (this.frames % 60 === 0) {
         let randomNum = Math.random() * 50;
         let randomXint = Math.floor(randomNum);
@@ -103,7 +107,7 @@ class Juego {
   };
 
   addGlobo = () => {
-    if (this.score <= 1) {
+    if (this.scoreOne <= 1) {
       if (this.frames % 60 === 0) {
         let randomNum2 = Math.random() * 30;
         let randomXint2 = Math.floor(randomNum2);
@@ -115,7 +119,7 @@ class Juego {
   };
 
   addTarta = () => {
-    if (this.score >= 2 && this.score <= 3) {
+    if (this.scoreOne >= 2 && this.scoreOne <= 3) {
       if (this.frames % 60 === 0) {
         let randomNum3 = Math.random() * 30;
         let randomXint3 = Math.floor(randomNum3);
@@ -129,7 +133,7 @@ class Juego {
   };
 
   addNiñoGloton = () => {
-    if (this.score >= 2 && this.score <= 3) {
+    if (this.scoreOne >= 2 && this.scoreOne <= 3) {
       if (this.frames % 60 === 0) {
         let randomNum4 = Math.random() * 50;
         let randomXint4 = Math.floor(randomNum4);
@@ -141,7 +145,7 @@ class Juego {
   };
 
   addNiñoTravieso = () => {
-    if (this.score >= 4) {
+    if (this.scoreTwo >= 2 && this.scoreTwo <= 3) {
       if (this.frames % 60 === 0) {
         let randomNum5 = Math.random() * 50;
         let randomXint5 = Math.floor(randomNum5);
@@ -151,6 +155,18 @@ class Juego {
       }
       this.tartaArr.splice(0, this.tartaArr.length);
       this.glotonArr.splice(0, this.glotonArr.length);
+    }
+  };
+
+  addRegalo = () => {
+    if (this.scoreTwo >= 2 && this.scoreTwo <= 3) {
+      if (this.frames % 60 === 0) {
+        let randomNum6 = Math.random() * 50;
+        let randomXint6 = Math.floor(randomNum6);
+
+        let nuevoRegalo = new Regalo(randomXint6);
+        this.regaloArr.push(nuevoRegalo);
+      }
     }
   };
 
@@ -192,6 +208,9 @@ class Juego {
     });
     this.addNiñoTravieso();
 
+
+    this.addRegalo();
+
     this.dardoChoque();
     this.globoChoque();
     this.tartaChoque();
@@ -220,6 +239,10 @@ class Juego {
 
     this.traviesoArr.forEach((eachTravieso) => {
       eachTravieso.drawNiñoTravieso();
+    });
+
+    this.regaloArr.forEach((eachRegalo) => {
+      eachRegalo.drawRegalo();
     });
 
     //recursion

@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 const startScreen = document.querySelector("#pantalla-inicial");
 const startBtn = document.querySelector("#start-btn");
 const gameOverScreen = document.querySelector("#pantalla-final");
+const winnerScreen = document.querySelector("#pantalla-ganar");
 const restartBtn = document.querySelector("#restart-btn");
 const contadorOne = document.querySelector("#globos");
 const contadorTwo = document.querySelector("#tartas");
@@ -13,11 +14,13 @@ let juegoObj;
 
 const empezarJuego = () => {
   startScreen.style.display = "none";
-  gameOverScreen.style.display = "none"
+  gameOverScreen.style.display = "none";
+  winnerScreen.style.display = "none";
   canvas.style.display = "block";
 
   juegoObj = new Juego();
   juegoObj.gameLoop();
+ juegoObj.borrarRegalo();
 };
 
 

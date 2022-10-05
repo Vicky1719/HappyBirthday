@@ -15,6 +15,7 @@ class Juego {
     this.isGameOn = true;
     this.scoreOne = 0;
     this.scoreTwo = 0;
+    this.scoreThree = 0;
   }
 
   dardoChoque = () => {
@@ -86,6 +87,21 @@ class Juego {
     });
   };
 
+  regaloChoque = () => {
+    this.regaloArr.forEach((eachRegalo, index) => {
+      if (
+        this.niñoBuenoObj.x < eachRegalo.x + eachRegalo.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachRegalo.x &&
+        this.niñoBuenoObj.y < eachRegalo.y + eachRegalo.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachRegalo.y
+      ) {
+        this.scoreThree++;
+        contadorThree.innerText = this.scoreThree;
+        this.regaloArr.splice(index, 1);
+      }
+    });
+  };
+
   gameOver = () => {
     this.isGameOn = false;
 
@@ -94,6 +110,8 @@ class Juego {
     gameOverScreen.style.display = "flex";
   };
 
+
+  
   addDardo = () => {
     if (this.scoreOne <= 1) {
       if (this.frames % 60 === 0) {
@@ -170,6 +188,15 @@ class Juego {
     }
   };
 
+  borrarRegalo = () => {
+    setInterval(() => {
+      this.regaloArr.forEach((eachRegalo, index) => {
+                this.regaloArr.splice(index, 1);
+      
+      });
+    }, 4000);
+  };
+
   drawFondo = () => {
     ctx.drawImage(this.fondo, 0, 0, canvas.w, canvas.h);
   };
@@ -208,7 +235,6 @@ class Juego {
     });
     this.addNiñoTravieso();
 
-
     this.addRegalo();
 
     this.dardoChoque();
@@ -216,6 +242,8 @@ class Juego {
     this.tartaChoque();
     this.glotonChoque();
     this.traviesoChoque();
+    this.regaloChoque();
+    
 
     //dibujar
     this.drawFondo();

@@ -7,7 +7,7 @@ class NiñoBueno {
     this.y = 50;
     this.w = 40;
     this.h = 35;
-    this.speed = 3;
+    this.speed = 5;
   }
 
   drawNiñoBueno = () => {

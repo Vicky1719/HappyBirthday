@@ -26,7 +26,7 @@ body {
 }
 
 
-#contador-one, #contador-two, #contador-three {
+.contador-one, .contador-two, .contador-three {
     position: absolute;
     width: 130px;
     height: 20px;
@@ -34,7 +34,11 @@ body {
     left: 25px;
 }
 
-#mi-canvas, #pantalla-final {
+#mi-canvas, #pantalla-final, #pantalla-ganar, #contadores {
     display: none;
 }
+
+
+
+
 

@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HappyBirthday</title>
-    <link rel ="stylesheet" href ="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
   <body>
     <div class="bloque">
-
       <!--pantalla inicial-->
       <div id="pantalla-inicial" class="bloque">
         <img src="./images/pantalla.inicio.jpg" alt="inicio" />
@@ -18,10 +17,14 @@
       </div>
 
       <!--juego-->
-      <canvas id="mi-canvas" width="600" height="400"></canvas>
-      <td class="contador-one">Globos<span id="globos">0</span></td> 
-      <td class="contador-two">Tartas<span id="tartas">0</span></td>
-      <td class="contador-three">Regalos<span id="regalos">0</span></td>
+      
+      <div id="contadores">
+        <td class="contador-one">Globos<span id="globos">0</span></td>
+        <td class="contador-two">Tartas<span id="tartas">0</span></td>
+        <td class="contador-three">Regalos<span id="regalos">0</span></td>
+      </div>
+
+      <canvas id="mi-canvas" width="1000" height="800"></canvas>
 
       <!--pantalla final-->
       <div id="pantalla-final" class="bloque">
@@ -31,11 +34,10 @@
 
       <!--pantalla ganar-->
       <div id="pantalla-ganar" class="bloque">
-        <img src ="./images/fondo.png" alt="ganar"/>
+        <img src="./images/fondo.png" alt="ganar" />
       </div>
     </div>
 
-    
     <script src="./javascript/main.js"></script>
     <script src="./javascript/juego.js"></script>
     <script src="./javascript/globo.js"></script>

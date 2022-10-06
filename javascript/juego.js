@@ -16,6 +16,7 @@ class Juego {
     this.scoreOne = 0;
     this.scoreTwo = 0;
     this.scoreThree = 0;
+    
   }
 
   dardoChoque = () => {
@@ -99,17 +100,34 @@ class Juego {
         contadorThree.innerText = this.scoreThree;
         this.regaloArr.splice(index, 1);
       }
+
+      if(this.scoreThree === 2) {
+        this.winner();
+      }
     });
   };
 
   gameOver = () => {
     this.isGameOn = false;
 
+    contadorOne.innerHtml = 0;
+
     canvas.style.display = "none";
 
     gameOverScreen.style.display = "flex";
+
+
+  
   };
 
+
+  winner = () => {
+    this.isGameOn = false;
+
+    canvas.style.display = "none";
+
+    winnerScreen.style.display = "flex";
+  };
 
   
   addDardo = () => {

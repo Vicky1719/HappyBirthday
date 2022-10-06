@@ -4,7 +4,7 @@ class Globo {
     this.img = new Image();
     this.img.src = "./images/globo.png";
 
-    this.x = 600;
+    this.x = 1000;
     this.y = Math.random() * canvas.height;
     this.w = 30;
     this.h = 25;

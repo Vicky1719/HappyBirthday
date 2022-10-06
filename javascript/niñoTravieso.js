@@ -4,7 +4,7 @@ class NiñoTravieso {
       this.img = new Image();
       this.img.src = "./images/travieso.png";
   
-      this.x = 600;
+      this.x = 1000;
       this.y = Math.random() * canvas.height;
       this.w = 35;
       this.h = 40;

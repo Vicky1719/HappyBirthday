@@ -9,7 +9,9 @@ const restartBtn = document.querySelector("#restart-btn");
 const contadorOne = document.querySelector("#globos");
 const contadorTwo = document.querySelector("#tartas");
 const contadorThree = document.querySelector("#regalos");
+const contadores = document.querySelector("#contadores");
 let juegoObj;
+
 // funciones
 
 const empezarJuego = () => {
@@ -17,11 +19,20 @@ const empezarJuego = () => {
   gameOverScreen.style.display = "none";
   winnerScreen.style.display = "none";
   canvas.style.display = "block";
+  contadores.style.display = "flex";
 
   juegoObj = new Juego();
   juegoObj.gameLoop();
  juegoObj.borrarRegalo();
 };
+
+
+/*const reiniciar = () => {
+  contadorOne.innerText = juegoObj.scoreOne
+}*/
+//startScreen = () => {
+//contadorOne.style.display = "none"
+//}
 
 
 

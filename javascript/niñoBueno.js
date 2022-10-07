@@ -2,11 +2,11 @@ class NiñoBueno {
   constructor() {
     // propiedades del niñoBueno
     this.img = new Image();
-    this.img.src = "./images/niñobueno.png";
+    this.img.src = "./images/yo.png";
     this.x = 50;
     this.y = 50;
-    this.w = 40;
-    this.h = 35;
+    this.w = 70;
+    this.h = 60;
     this.speed = 5;
   }
 

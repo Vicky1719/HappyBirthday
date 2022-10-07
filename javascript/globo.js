@@ -2,12 +2,12 @@ class Globo {
   constructor() {
     // propiedades del globo
     this.img = new Image();
-    this.img.src = "./images/globo.png";
+    this.img.src = "./images/globoRosa.png";
 
     this.x = 1000;
     this.y = Math.random() * canvas.height;
-    this.w = 30;
-    this.h = 25;
+    this.w = 60;
+    this.h = 80;
     this.speed = 3;
   }
 

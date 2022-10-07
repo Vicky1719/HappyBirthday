@@ -1,44 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Peralta&display=swap");
+
 body {
-    margin: 0;
-    background-color: aliceblue;
+  margin: 0;
+  background-color: aliceblue;
+  font-family: "Peralta";
 }
 
 #mi-canvas {
-   
-    background-color:antiquewhite;
+  background-color: aqua;
 }
 
-#start-btn, #restart-btn {
-    background-color: blueviolet;
-    color: aqua;
-    padding: 30px;
-    font-size: 30px;
-    margin-top: 45px;
-    border-radius: 15;
-    }
+#start-btn,
+#restart-btn {
+  background-color: blueviolet;
+  color: aqua;
+  padding: 30px;
+  font-size: 30px;
+  margin-top: 45px;
+  border-radius: 15;
+  font-family: "Peralta";
+}
 
 .bloque {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
 }
 
-
-.contador-one, .contador-two, .contador-three {
-    position: absolute;
-    width: 130px;
-    height: 20px;
-    margin-top: 500px;
-    left: 25px;
+.contador-one,
+.contador-two,
+.contador-three {
+  position: absolute;
+  width: 130px;
+  height: 20px;
+  margin-top: 500px;
+  left: 25px;
 }
 
-#mi-canvas, #pantalla-final, #pantalla-ganar, #contadores {
-    display: none;
+#mi-canvas,
+#pantalla-final,
+#pantalla-ganar,
+#contadores {
+  display: none;
 }
-
-
-
-
-

@@ -1,7 +1,7 @@
 class Juego {
   constructor() {
     this.fondo = new Image();
-    this.fondo.src = "./images/fondo.png";
+    this.fondo.src = "./images/canvas.png";
 
     this.niñoBuenoObj = new NiñoBueno();
 
@@ -11,12 +11,14 @@ class Juego {
     this.tartaArr = [];
     this.traviesoArr = [];
     this.regaloArr = [];
+    this.grandeArr = [];
+    this.grande1Arr = [];
+    this.grande2Arr = [];
     this.frames = 0;
     this.isGameOn = true;
     this.scoreOne = 0;
     this.scoreTwo = 0;
     this.scoreThree = 0;
-    
   }
 
   dardoChoque = () => {
@@ -27,6 +29,7 @@ class Juego {
         this.niñoBuenoObj.y < eachDardo.y + eachDardo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachDardo.y
       ) {
+        document.querySelector("#sonido-perder").play();
         this.gameOver();
       }
     });
@@ -40,6 +43,7 @@ class Juego {
         this.niñoBuenoObj.y < eachGlobo.y + eachGlobo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGlobo.y
       ) {
+        document.querySelector("#sonido-ganar").play();
         this.scoreOne++;
         contadorOne.innerText = this.scoreOne;
         this.globoArr.splice(index, 1);
@@ -55,6 +59,7 @@ class Juego {
         this.niñoBuenoObj.y < eachTarta.y + eachTarta.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachTarta.y
       ) {
+        document.querySelector("#sonido-ganar").play();
         this.scoreTwo++;
         contadorTwo.innerText = this.scoreTwo;
         this.tartaArr.splice(index, 1);
@@ -70,6 +75,7 @@ class Juego {
         this.niñoBuenoObj.y < eachGloton.y + eachGloton.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGloton.y
       ) {
+        document.querySelector("#sonido-perder").play();
         this.gameOver();
       }
     });
@@ -83,6 +89,7 @@ class Juego {
         this.niñoBuenoObj.y < eachTravieso.y + eachTravieso.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachTravieso.y
       ) {
+        document.querySelector("#sonido-perder").play();
         this.gameOver();
       }
     });
@@ -96,13 +103,56 @@ class Juego {
         this.niñoBuenoObj.y < eachRegalo.y + eachRegalo.h &&
         this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachRegalo.y
       ) {
+        document.querySelector("#sonido-ganar").play();
         this.scoreThree++;
         contadorThree.innerText = this.scoreThree;
         this.regaloArr.splice(index, 1);
       }
 
-      if(this.scoreThree === 2) {
+      if (this.scoreThree === 2) {
         this.winner();
+      }
+    });
+  };
+
+  grandeChoque = () => {
+    this.grandeArr.forEach((eachGrande) => {
+      if (
+        this.niñoBuenoObj.x < eachGrande.x + eachGrande.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachGrande.x &&
+        this.niñoBuenoObj.y < eachGrande.y + eachGrande.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGrande.y
+      ) {
+        document.querySelector("#sonido-perder").play();
+        this.gameOver();
+      }
+    });
+  };
+
+  grande1Choque = () => {
+    this.grande1Arr.forEach((eachGrande1) => {
+      if (
+        this.niñoBuenoObj.x < eachGrande1.x + eachGrande1.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachGrande1.x &&
+        this.niñoBuenoObj.y < eachGrande1.y + eachGrande1.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGrande1.y
+      ) {
+        document.querySelector("#sonido-perder").play();
+        this.gameOver();
+      }
+    });
+  };
+
+  grande2Choque = () => {
+    this.grande2Arr.forEach((eachGrande2) => {
+      if (
+        this.niñoBuenoObj.x < eachGrande2.x + eachGrande2.w &&
+        this.niñoBuenoObj.x + this.niñoBuenoObj.w > eachGrande2.x &&
+        this.niñoBuenoObj.y < eachGrande2.y + eachGrande2.h &&
+        this.niñoBuenoObj.h + this.niñoBuenoObj.y > eachGrande2.y
+      ) {
+        document.querySelector("#sonido-perder").play();
+        this.gameOver();
       }
     });
   };
@@ -110,16 +160,10 @@ class Juego {
   gameOver = () => {
     this.isGameOn = false;
 
-    contadorOne.innerHtml = 0;
-
     canvas.style.display = "none";
 
     gameOverScreen.style.display = "flex";
-
-
-  
   };
-
 
   winner = () => {
     this.isGameOn = false;
@@ -129,7 +173,6 @@ class Juego {
     winnerScreen.style.display = "flex";
   };
 
-  
   addDardo = () => {
     if (this.scoreOne <= 1) {
       if (this.frames % 60 === 0) {
@@ -165,6 +208,8 @@ class Juego {
       }
       this.globoArr.splice(0, this.globoArr.length);
       this.niñoDardoArr.splice(0, this.niñoDardoArr.length);
+      this.grandeArr.splice(0, this.grandeArr.length);
+      this.grande1Arr.splice(0, this.grande1Arr.length);
     }
   };
 
@@ -191,6 +236,7 @@ class Juego {
       }
       this.tartaArr.splice(0, this.tartaArr.length);
       this.glotonArr.splice(0, this.glotonArr.length);
+      this.grande2Arr.splice(0, this.grande2Arr.length);
     }
   };
 
@@ -206,11 +252,37 @@ class Juego {
     }
   };
 
+  addNiñoGrande = () => {
+    if (this.scoreOne <= 1) {
+      if (this.frames % 180 === 0) {
+        let nuevoNiñoGrande = new NiñoGrande("lado");
+        this.grandeArr.push(nuevoNiñoGrande);
+      }
+    }
+  };
+
+  addNiñoGrande1 = () => {
+    if (this.scoreOne <= 1) {
+      if (this.frames % 120 === 0) {
+        let nuevoNiñoGrande1 = new NiñoGrande("arriba");
+        this.grande1Arr.push(nuevoNiñoGrande1);
+      }
+    }
+  };
+
+  addNiñoGrande2 = () => {
+    if (this.scoreOne >= 2 && this.scoreOne <= 3) {
+      if (this.frames % 180 === 0) {
+        let nuevoNiñoGrande2 = new NiñoGrande("loco");
+        this.grande2Arr.push(nuevoNiñoGrande2);
+      }
+    }
+  };
+
   borrarRegalo = () => {
     setInterval(() => {
       this.regaloArr.forEach((eachRegalo, index) => {
-                this.regaloArr.splice(index, 1);
-      
+        this.regaloArr.splice(index, 1);
       });
     }, 4000);
   };
@@ -218,7 +290,6 @@ class Juego {
   drawFondo = () => {
     ctx.drawImage(this.fondo, 0, 0, canvas.w, canvas.h);
   };
-  //contador-one = `Score: ${this.score}`;
 
   gameLoop = () => {
     this.frames = this.frames + 1;
@@ -253,6 +324,21 @@ class Juego {
     });
     this.addNiñoTravieso();
 
+    this.grandeArr.forEach((eachGrande) => {
+      eachGrande.molestarNiñoGrande1();
+    });
+    this.addNiñoGrande();
+
+    this.grande1Arr.forEach((eachGrande1) => {
+      eachGrande1.molestarNiñoGrande2();
+    });
+    this.addNiñoGrande1();
+
+    this.grande2Arr.forEach((eachGrande2) => {
+      eachGrande2.locoChoque();
+    });
+    this.addNiñoGrande2();
+
     this.addRegalo();
 
     this.dardoChoque();
@@ -261,7 +347,9 @@ class Juego {
     this.glotonChoque();
     this.traviesoChoque();
     this.regaloChoque();
-    
+    this.grandeChoque();
+    this.grande1Choque();
+    this.grande2Choque();
 
     //dibujar
     this.drawFondo();
@@ -289,6 +377,18 @@ class Juego {
 
     this.regaloArr.forEach((eachRegalo) => {
       eachRegalo.drawRegalo();
+    });
+
+    this.grandeArr.forEach((eachGrande) => {
+      eachGrande.drawNiñoGrande();
+    });
+
+    this.grande1Arr.forEach((eachGrande1) => {
+      eachGrande1.drawNiñoGrande();
+    });
+
+    this.grande2Arr.forEach((eachGrande2) => {
+      eachGrande2.drawNiñoGrande();
     });
 
     //recursion

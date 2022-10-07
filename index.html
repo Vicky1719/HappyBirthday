@@ -12,31 +12,42 @@
     <div class="bloque">
       <!--pantalla inicial-->
       <div id="pantalla-inicial" class="bloque">
-        <img src="./images/pantalla.inicio.jpg" alt="inicio" />
+        <img src="./images/6014650.jpg" alt="inicio" />
         <button id="start-btn">Empezamos!</button>
       </div>
 
       <!--juego-->
-      
+
       <div id="contadores">
-        <td class="contador-one">Globos<span id="globos">0</span></td>
-        <td class="contador-two">Tartas<span id="tartas">0</span></td>
-        <td class="contador-three">Regalos<span id="regalos">0</span></td>
+        <td class="contador-one">
+          Globos <span id="globos">0</span><span>/2</span>
+        </td>
+        <td class="contador-two">
+          Tartas <span id="tartas">0</span><span>/2</span>
+        </td>
+        <td class="contador-three">
+          Regalos <span id="regalos">0</span><span>/2</span>
+        </td>
       </div>
 
       <canvas id="mi-canvas" width="1000" height="800"></canvas>
 
       <!--pantalla final-->
       <div id="pantalla-final" class="bloque">
-        <img src="./images/tarta.jpg" alt="final" />
+        <img src="./images/gameover.JPG" alt="final" />
+        <h1>GAME OVER</h1>
         <button id="restart-btn">Juega de nuevo!</button>
       </div>
 
       <!--pantalla ganar-->
       <div id="pantalla-ganar" class="bloque">
-        <img src="./images/fondo.png" alt="ganar" />
+        <img src="./images/winner.png" alt="ganar" />
       </div>
     </div>
+
+    <audio id="sonido-inicial" src="./mp3/inicial.mp3"></audio>
+    <audio id="sonido-ganar" src="./mp3/ganar.mp3"></audio>
+    <audio id="sonido-perder" src="./mp3/perder.mp3"></audio>
 
     <script src="./javascript/main.js"></script>
     <script src="./javascript/juego.js"></script>
@@ -47,5 +58,6 @@
     <script src="./javascript/tarta.js"></script>
     <script src="./javascript/niñoTravieso.js"></script>
     <script src="./javascript/regalo.js"></script>
+    <script src="./javascript/niñoGrande.js"></script>
   </body>
 </html>

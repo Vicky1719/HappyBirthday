@@ -15,6 +15,7 @@ let juegoObj;
 // funciones
 
 const empezarJuego = () => {
+  document.querySelector("#sonido-inicial").play();
   startScreen.style.display = "none";
   gameOverScreen.style.display = "none";
   winnerScreen.style.display = "none";
@@ -23,18 +24,15 @@ const empezarJuego = () => {
 
   juegoObj = new Juego();
   juegoObj.gameLoop();
- juegoObj.borrarRegalo();
+  juegoObj.borrarRegalo();
+  reiniciar();
 };
 
-
-/*const reiniciar = () => {
-  contadorOne.innerText = juegoObj.scoreOne
-}*/
-//startScreen = () => {
-//contadorOne.style.display = "none"
-//}
-
-
+const reiniciar = () => {
+  contadorOne.innerText = juegoObj.scoreOne;
+  contadorTwo.innerText = juegoObj.scoreTwo;
+  contadorThree.innerText = juegoObj.scoreThree;
+};
 
 // event listeners
 

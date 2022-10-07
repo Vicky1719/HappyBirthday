@@ -287,6 +287,7 @@ class Juego {
         this.regaloArr.splice(index, 1);
       });
     }, 4000);
+    
   };
 
   drawFondo = () => {

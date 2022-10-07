@@ -1,18 +1,18 @@
 # HappyBirthday
 
 
-## [Ver el Juego](www.your-url-here.com)
+## [Ver el Juego](https://vicky1719.github.io/HappyBirthday/)
 NOTA: el enlace anterior se agregará más tarde
 
 # Descripción
 
-HappyBirthday es un juego en el que el jugador tiene que conseguir montar su fiesta de cumpleaños, para ello tiene que conseguir todos los globos necesarios mientras esquiva los dardos que porta su travieso amigo.
+HappyBirthday es un juego en el que el jugador quiere celebrar su fiesta de cumpleaños, para ello tiene que conseguir todos los elementos necesarios mientras esquiva a todos sus traviesos oponentes.
 
 
 # Funcionalidades Principales
 
-En el juego el jugador va de izquierda a derecha y tanto los globos como los dardos van apareciendo por la derecha.
-Dificultad creciente
+El jugador se mueve con las flechas en todas las direcciones, mientras que los oponentes, dependiendo en la fase que se encuentre aparecen aleatoriamente por diversos lugares (arriba, derecha, rebotando...) 
+
 
 # Funcionalidades de acumulación
 
@@ -26,7 +26,7 @@ construirPantalla-Juego () {}
 construirPantalla-Final () {}
 
 juego.js
-empezar uego () {}
+empezar juego () {}
 bucle de niños con dardo () {}
 bucle globos () {}
 verificarColisiones () {}
@@ -68,4 +68,4 @@ dibujar globo () {}
 [Enlace](www.su-url-aquí.com)
 
 ### Diapositivas
-[Enlace](www.su-url-aquí.com)HappyBirthday
+[Enlace](https://bit.ly/3T2jVxk)

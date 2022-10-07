@@ -10,17 +10,19 @@ const contadorOne = document.querySelector("#globos");
 const contadorTwo = document.querySelector("#tartas");
 const contadorThree = document.querySelector("#regalos");
 const contadores = document.querySelector("#contadores");
+const audio = document.querySelector("#sonido-inicial");
 let juegoObj;
 
 // funciones
 
 const empezarJuego = () => {
-  document.querySelector("#sonido-inicial").play();
   startScreen.style.display = "none";
   gameOverScreen.style.display = "none";
   winnerScreen.style.display = "none";
   canvas.style.display = "block";
   contadores.style.display = "flex";
+  audio.volume = 0.05;
+  audio.play();
 
   juegoObj = new Juego();
   juegoObj.gameLoop();

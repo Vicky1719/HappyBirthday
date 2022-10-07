@@ -163,6 +163,8 @@ class Juego {
     canvas.style.display = "none";
 
     gameOverScreen.style.display = "flex";
+
+    document.querySelector("#sonido-inicial").pause();
   };
 
   winner = () => {
@@ -288,7 +290,7 @@ class Juego {
   };
 
   drawFondo = () => {
-    ctx.drawImage(this.fondo, 0, 0, canvas.w, canvas.h);
+    ctx.drawImage(this.fondo, 0, 0, canvas.width, canvas.height);
   };
 
   gameLoop = () => {
@@ -353,6 +355,7 @@ class Juego {
 
     //dibujar
     this.drawFondo();
+
     this.niñoBuenoObj.drawNiñoBueno();
 
     this.niñoDardoArr.forEach((eachDardo) => {

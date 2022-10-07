@@ -16,15 +16,27 @@ class NiñoBueno {
 
   moverArriba = () => {
     this.y = this.y - this.speed;
+    if (this.y <= 0) {
+      this.y = 0;
+    }
   };
   moverAbajo = () => {
     this.y = this.y + this.speed;
+    if (this.y >= 750) {
+      this.y = 750;
+    }
   };
   moverDerecha = () => {
     this.x = this.x + this.speed;
+    if (this.x >= 950) {
+      this.x = 950;
+    }
   };
 
   moverIzquierda = () => {
     this.x = this.x - this.speed;
+    if (this.x <= 0) {
+      this.x = 0;
+    }
   };
 }

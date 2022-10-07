@@ -29,14 +29,18 @@ body {
   margin: 50px;
 }
 
-.contador-one,
-.contador-two,
-.contador-three {
+#contadores {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
   position: absolute;
   width: 130px;
   height: 20px;
-  margin-top: 500px;
-  left: 25px;
+  left: 20px;
+}
+
+#contadores span {
+  padding: 0px 0px 0px 4px;
 }
 
 #mi-canvas,
